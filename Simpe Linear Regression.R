@@ -42,6 +42,10 @@ outliers <- boxplot(medv, plot=FALSE)$out
 print(outliers)
 df_removed_outliers <- Boston[-which(Boston$medv %in% outliers),]
 
+png("Scatterplot_outiers removed.png")
+plot(df_removed_outliers$medv,df_removed_outliers$lstat, xlab='Median home vaue in $1000', ylab='% Lower status population', main='Scatter with outliers removed')
+dev.off()
+
 lm.outliers <- lm(medv~lstat, data=df_removed_outliers)
 summary(lm.outliers)
 confint(lm.outliers)
