@@ -1,4 +1,4 @@
-# Simpe-Linear-Regression---R
+# Simple-Linear-Regression---R
 
 Example of a Simple Linear Regression in R.
 
