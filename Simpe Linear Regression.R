@@ -23,7 +23,7 @@ confint(lm.fit)
 
 attach(Boston)
 png("Scatter with regression line.png")
-plot(lstat,medv, xlab = '% Lower status population', ylab = 'Median home vaue in $1000', main = 'Scatter plot of median home vaue vs % lower status population with regression line')
+plot(lstat,medv, xlab = '% Lower status population', ylab = 'Median home vaue in $1000', main = 'Scatter plot with regression line')
 abline(lm.fit,col='red', lwd=2)
 dev.off()
 detach(Boston)
@@ -42,7 +42,7 @@ outliers <- boxplot(medv, plot=FALSE)$out
 print(outliers)
 df_removed_outliers <- Boston[-which(Boston$medv %in% outliers),]
 
-png("Scatterplot_outiers removed.png")
+png("Scatterplot_outliers removed.png")
 plot(df_removed_outliers$medv,df_removed_outliers$lstat, xlab='Median home vaue in $1000', ylab='% Lower status population', main='Scatter with outliers removed')
 dev.off()
 
@@ -55,7 +55,7 @@ plot(lm.outliers)
 
 
 png("Scatter with regression line (outliers removed).png")
-plot(lstat,medv, xlab = '% Lower status population', ylab = 'Median home vaue in $1000', main = 'Scatter plot of median home vaue vs % lower status population with regression line (outliers removed)')
+plot(df_removed_outliers$medv,df_removed_outliers$lstat, xlab = '% Lower status population', ylab = 'Median home vaue in $1000', main = 'Scatter plot with regression line (outliers removed)')
 abline(lm.outliers,col='red', lwd=2)
 dev.off()
 detach(Boston)
